@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body .formulario {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+div .campo {
+    width: 100%;
+}
