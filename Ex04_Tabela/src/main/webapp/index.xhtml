@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <title>Sistema Gerenciamento de Conta de Energia</title>
+        <h:outputStylesheet name="style.css" library="css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:card class="container">
+                <f:facet name="title">
+                    Sistema Gerenciamento de Conta de Energia
+                </f:facet>
+
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-lg-4">
+                        <p:outputLabel value="Equipamento:" />
+                        <p:inputText class="campo" value="${ct.cpEquipamento}"/>
+                    </div>
+                    <div class="ui-g-12 ui-lg-2">
+                        <p:outputLabel value="potência(watts):" />
+                        <p:inputNumber class="campo" value="${ct.cpPotencia}"/>
+                    </div>
+                    <div class="ui-g-12 ui-lg-2">
+                        <p:outputLabel value="tempo:" />
+                        <p:inputNumber class="campo" value="${ct.cpTempo}"/>
+                    </div>
+                    <div class="ui-g-12 ui-lg-2">
+                        <p:outputLabel value="Unidade: " />
+                        <p:selectOneMenu class="campo" value="${ct.cpUnidadeTempo}">
+                            <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                            <f:selectItem itemLabel="Horas" itemValue="Horas"/>
+                            <f:selectItem itemLabel="Minutos" itemValue="Minutos"/>
+                        </p:selectOneMenu>
+                    </div>
+                    <div class="ui-g-12 ui-lg-2">
+                        <br/>
+                        <p:commandButton value="Adicionar" styleClass="campo ui-button-success"/>
+                    </div>
+                </div>
+
+                <p:dataTable value='' showGridlines="true" size="small">
+                    <p:column headerText="#" width='20'>
+                        <h:outputText value="01"/>
+                    </p:column>
+                    <p:column headerText="Equipamento">
+                        <h:outputText value="Computador"/>
+                    </p:column>
+                    <p:column headerText="potência(watts)" width='160' >
+                        <h:outputText value="10W"/>
+                    </p:column>
+                    <p:column headerText="Tempo" width='100' >
+                        <h:outputText value="10"/>
+                    </p:column>
+                    <p:column headerText="kW/h" width='160' >
+                        <h:outputText value="100"/>
+                    </p:column>
+                    <p:column headerText="Total" width='160' >
+                        <h:outputText value="10"/>
+                    </p:column>
+                    <p:column headerText="" width='100' >
+                        <p:commandLink value="Editar" class="campo"/>
+                    </p:column>
+                    <p:column headerText="" width='100' >
+                        <p:commandLink value="Excluir" class="campo"/>
+                    </p:column>
+                </p:dataTable>
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-lg-6">
+                        <p:outputLabel value="Total: " />
+                        <p:inputNumber disabled="true" class="campo" value="${ct.cpTotal}"/>
+                    </div>
+                    <div class="ui-g-12 ui-lg-6">
+                        <p:outputLabel value="kW/h:  " />
+                        <p:inputNumber class="campo" value="${ct.cpValorkWh}"/>
+                    </div>
+                </div>
+            </p:card>
+        </h:form>
+    </h:body>
+</html>
